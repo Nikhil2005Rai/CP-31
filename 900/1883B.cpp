@@ -7,30 +7,32 @@ void solve() {
     string s;
     cin>>s;
 
-    vector<int> freq(26, 0);
-    for(char ch: s) 
-        freq[ch - 'a']++;
+    vector<int> fr(26, 0);
+    for(char ch: s) fr[ch-'a']++;
 
-    int even = 0, odd = 0;
-    for(int x : freq) {
-        if(x & 1) odd++;
+    int e = 0, o = 0;
+    for(int it: fr) {
+        if(it ==0 ) continue;
+        if(it & 1) o++;
+        else e++;
     }
-    even = n - odd;
 
-    even -= max(k-odd, 0);
-    odd -= min(k, odd);
-
-    if(odd > 1 || even & 1) {
-        cout<<"---NO"<<endl;
+    if(k < o - 1) {
+        cout<<"NO"<<endl;
         return;
     }
 
-    cout<<"---YES";
-    cout<<endl;
+    if(k == o) {
+        cout<<"YES"<<endl;
+        return;
+    }
+
+   
+        cout<<"YES"<<endl;
 }
-//sdfa
 
 int main() {
+
     int t;
     cin>>t;
 
